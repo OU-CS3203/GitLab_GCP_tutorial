@@ -16,7 +16,7 @@ Go to projects by
 
 Menu -> <button>Home</button>
 
-Select the project dropdown 
+
 
 ![](./1.PNG)
 
@@ -76,7 +76,7 @@ Select <button>Create</button> to create a new VM:
 
 
 
-1- For the instance **Name**, select a proper name, for example `gitlab-instance`
+1- For the instance **Name**, choose a proper name, for example `gitlab-instance`
 
  2- For **Machine configuration**; make sure to select the following
 
@@ -111,7 +111,7 @@ is selected!
 <div style="background-color:#fbff8a; padding:20px; border: 1px solid red;">
     <center><strong>Warning!</strong></center><br>
     <ul>
-        <li>Not allowing HTTP/HTTPS traffic will prevent access to the gitlab server, or any server! Make sure you have them are checked! </li>
+        <li>Not allowing HTTP/HTTPS traffic will prevent access to the gitlab server, or any server! Make sure you have them checked! </li>
     </ul> 
 </div>
 
@@ -119,9 +119,10 @@ is selected!
 
 
 
+
 ![](./13.PNG)
 
-Re-check the settings and make sure are proper options are selected, 
+Re-check the settings and make sure the proper options are selected.
 
 <center>Configuration summary</center>
 
@@ -143,17 +144,15 @@ Then click <button>Create</button> to create your VM.
 
 ### Configure static IP
 
-GCP assigns a dynamic IP to VM by default. This will cause problem for shu
+GCP assigns a dynamic IP to VM by default. This will cases changes the address of GitLab server when ever server shuts down. This case problems for the GitLab installation. To prevent this, we can assign an static IP to the VM. 
 
-In the left menu, 
+In order to do that, in the left menu, 
 
 Under <button>Compute Engine</button> , select <button>VM Instances</button>
 
 ![](./14.PNG)
 
 Here, you find the list of your VMs, which at least one them should be your newly created GitLab-instance. 
-
-Assign an static IP to your VM: 
 
 Click on the instance name: 
 
@@ -189,7 +188,7 @@ And click <button>Save</button> on the bottom of page to save configuration.
 
 Return back to VM instances page 
 
-To connect, click <button>SSH</button> on the proper instance row: 
+To connect, click <button>SSH</button> to connect to VM: 
 
 ![](./25.PNG)
 
@@ -251,7 +250,7 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 Type following in the shell and replace the {your-ip-address} with you IP address which is visible on VM instances row. 
 
 ```she
-sudo EXTERNAL_URL="https://35.209.15.45/" apt-get install gitlab-ee
+sudo EXTERNAL_URL="https:{your-ip-address}" apt-get install gitlab-ee
 ```
 
 Wait until installation is over.  This will take 10 minute or more. 
@@ -274,7 +273,7 @@ In the VM instances page, click on your instance IP
 
 In a new tab, the GitLab page should appear, 
 
-**Notice 1:** You might face with chrome safety alert that the page is not secure, that is because we are using an IP instead of domain in a HTTPS connection, depending on your browser, accept to enter to webpage. 
+**Notice 1:** You might face with browser safety alert that the page is not secure, that is because we are using an IP instead of domain in a HTTPS connection, depending on your browser, accept to enter to webpage. 
 
 **Notice 2: ** GitLab takes a few minute to configure initially and you might see a error 502 *Whoops, GitLab is taking too much time to respond.* Wait 5 minutes and refresh the page again until you see the following page   
 
