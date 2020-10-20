@@ -250,7 +250,7 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.de
 Type following in the shell and replace the {your-ip-address} with you IP address which is visible on VM instances row. 
 
 ```she
-sudo EXTERNAL_URL="https:{your-ip-address}" apt-get install gitlab-ee
+sudo EXTERNAL_URL="https://{your-ip-address}" apt-get install gitlab-ee
 ```
 
 Wait until installation is over.  This will take 10 minute or more. 
