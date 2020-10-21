@@ -265,7 +265,7 @@ sudo gitlab-ctl start
 
 now, you can access your GitLab Server using a browser, 
 
-## Configure GitLab and create an reop 
+## Configure GitLab and create a repository  
 
 In the VM instances page, click on your instance IP 
 
